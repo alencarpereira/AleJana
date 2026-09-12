@@ -1,0 +1,216 @@
+/* RESET E CONFIGURAÇÕES GERAIS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #0f172a;
+    color: #f8fafc;
+    min-height: 100vh;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* CABEÇALHO */
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    font-size: 2.2rem;
+    color: #38bdf8;
+    margin-bottom: 8px;
+}
+
+header p {
+    color: #94a3b8;
+    font-size: 0.95rem;
+}
+
+/* LAYOUT PRINCIPAL */
+.container {
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* CARTÕES E SEÇÕES */
+.card {
+    background-color: #1e293b;
+    border-radius: 12px;
+    padding: 20px;
+    border: 1px solid #334155;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+}
+
+.card h2 {
+    font-size: 1.25rem;
+    color: #e2e8f0;
+    margin-bottom: 16px;
+    border-bottom: 1px solid #334155;
+    padding-bottom: 8px;
+}
+
+/* FORMULÁRIOS E INPUTS */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 12px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+}
+
+.odds-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 12px;
+}
+
+label {
+    font-size: 0.85rem;
+    color: #cbd5e1;
+    font-weight: 500;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+    width: 100%;
+    padding: 10px 12px;
+    background-color: #0f172a;
+    border: 1px solid #475569;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+select:focus {
+    border-color: #38bdf8;
+    box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.2);
+}
+
+/* TABELA DE CONFRONTOS (H2H) */
+.table-responsive {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 8px;
+}
+
+th,
+td {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #334155;
+}
+
+th {
+    background-color: #0f172a;
+    color: #94a3b8;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+td input[type="number"] {
+    max-width: 80px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+/* GRUPOS DE BOTÕES DE AÇÃO */
+.actions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 10px 0;
+    width: 100%;
+}
+
+button {
+    font-weight: 700;
+    font-size: 0.95rem;
+    padding: 12px 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+    width: 100%;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+/* BOTÃO PRÉ-JOGO */
+.btn-primary {
+    background-color: #10b981;
+    color: #022c22;
+}
+
+.btn-primary:hover {
+    background-color: #34d399;
+}
+
+/* BOTÃO AO VIVO (LIVE) */
+.btn-warning {
+    background-color: #f59e0b;
+    color: #1c1917;
+}
+
+.btn-warning:hover {
+    background-color: #fbbf24;
+}
+
+/* BOTÃO SECUNDÁRIO / TESTE */
+.btn-secondary {
+    background-color: #0284c7;
+    color: #ffffff;
+}
+
+.btn-secondary:hover {
+    background-color: #38bdf8;
+}
+
+/* BOTÃO DE PERIGO / LIMPAR */
+.btn-danger {
+    background-color: #334155;
+    color: #f1f5f9;
+}
+
+.btn-danger:hover {
+    background-color: #ef4444;
+    color: #ffffff;
+}
+
+/* ÁREA DE RESULTADOS */
+.result-card {
+    background-color: #0284c7;
+    border-color: #38bdf8;
+    color: #ffffff;
+}
+
+.result-card h2 {
+    border-bottom-color: rgba(255, 255, 255, 0.3);
+    color: #ffffff;
+}

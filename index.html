@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analisador de Apostas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>⚽ Analisador de Apostas (Pré-Jogo & Live)</h1>
+        <p>Processe os dados pré-jogo para gerar a matriz base e faça leituras em tempo real ao vivo.</p>
+    </header>
+
+    <main class="container">
+
+        <!-- SEÇÃO: TIPO DE COMPETIÇÃO E TIMES -->
+        <section class="card">
+            <h2>Informações da Partida</h2>
+
+            <div class="form-group">
+                <label for="tipoCompeticao">Tipo de Competição:</label>
+                <select id="tipoCompeticao">
+                    <option value="liga">Pontos Corridos (Liga)</option>
+                    <option value="matamata">Mata-Mata / Eliminatória</option>
+                </select>
+            </div>
+
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="timeA">Time Mandante (Time A):</label>
+                    <input type="text" id="timeA" placeholder="Ex: Flamengo">
+                </div>
+
+                <div class="form-group">
+                    <label for="timeB">Time Visitante (Time B):</label>
+                    <input type="text" id="timeB" placeholder="Ex: Palmeiras">
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO: ODDS DAS CASAS DE APOSTAS -->
+        <section class="card">
+            <h2>📊 Odds do Mercado (Opcional)</h2>
+            <div class="odds-grid">
+                <div class="form-group">
+                    <label for="oddA">Vitória Time A:</label>
+                    <input type="number" id="oddA" step="0.01" min="1.01" placeholder="Ex: 2.10">
+                </div>
+
+                <div class="form-group">
+                    <label for="oddEmpate">Empate:</label>
+                    <input type="number" id="oddEmpate" step="0.01" min="1.01" placeholder="Ex: 3.20">
+                </div>
+
+                <div class="form-group">
+                    <label for="oddB">Vitória Time B:</label>
+                    <input type="number" id="oddB" step="0.01" min="1.01" placeholder="Ex: 3.50">
+                </div>
+
+                <div class="form-group">
+                    <label for="oddOver25">Over 2.5 Gols:</label>
+                    <input type="number" id="oddOver25" step="0.01" min="1.01" placeholder="Ex: 1.85">
+                </div>
+
+                <div class="form-group">
+                    <label for="oddBTTS">Ambos Marcam (BTTS):</label>
+                    <input type="number" id="oddBTTS" step="0.01" min="1.01" placeholder="Ex: 1.80">
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO: CONFRONTOS DIRETO (H2H) -->
+        <section class="card">
+            <h2>⚔️ Últimos 5 Confrontos Diretos (H2H)</h2>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Partida</th>
+                            <th>Gols Time A</th>
+                            <th>Gols Time B</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>H2H 1</td>
+                            <td><input type="number" id="h_a1" min="0" placeholder="0"></td>
+                            <td><input type="number" id="h_b1" min="0" placeholder="0"></td>
+                        </tr>
+                        <tr>
+                            <td>H2H 2</td>
+                            <td><input type="number" id="h_a2" min="0" placeholder="0"></td>
+                            <td><input type="number" id="h_b2" min="0" placeholder="0"></td>
+                        </tr>
+                        <tr>
+                            <td>H2H 3</td>
+                            <td><input type="number" id="h_a3" min="0" placeholder="0"></td>
+                            <td><input type="number" id="h_b3" min="0" placeholder="0"></td>
+                        </tr>
+                        <tr>
+                            <td>H2H 4</td>
+                            <td><input type="number" id="h_a4" min="0" placeholder="0"></td>
+                            <td><input type="number" id="h_b4" min="0" placeholder="0"></td>
+                        </tr>
+                        <tr>
+                            <td>H2H 5</td>
+                            <td><input type="number" id="h_a5" min="0" placeholder="0"></td>
+                            <td><input type="number" id="h_b5" min="0" placeholder="0"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- SEÇÃO: DADOS AO VIVO (LIVE) -->
+        <section class="card">
+            <h2>⏱️ Dados da Partida Ao Vivo</h2>
+
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="tempoJogo">Minutos do Jogo:</label>
+                    <input type="number" id="tempoJogo" min="0" max="100" placeholder="Ex: 35">
+                </div>
+
+                <div class="form-group">
+                    <label for="placarA">Gols Time A:</label>
+                    <input type="number" id="placarA" min="0" placeholder="Ex: 0">
+                </div>
+
+                <div class="form-group">
+                    <label for="placarB">Gols Time B:</label>
+                    <input type="number" id="placarB" min="0" placeholder="Ex: 0">
+                </div>
+            </div>
+
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="escanteiosA">Escanteios Time A:</label>
+                    <input type="number" id="escanteiosA" min="0" placeholder="Ex: 4">
+                </div>
+
+                <div class="form-group">
+                    <label for="escanteiosB">Escanteios Time B:</label>
+                    <input type="number" id="escanteiosB" min="0" placeholder="Ex: 1">
+                </div>
+
+                <div class="form-group">
+                    <label for="chutesA">Chutes no Gol Time A:</label>
+                    <input type="number" id="chutesA" min="0" placeholder="Ex: 5">
+                </div>
+
+                <div class="form-group">
+                    <label for="chutesB">Chutes no Gol Time B:</label>
+                    <input type="number" id="chutesB" min="0" placeholder="Ex: 1">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="pressaoTime">Qual time está pressionando?</label>
+                <select id="pressaoTime">
+                    <option value="nenhum">Jogo Equilibrado / Morno</option>
+                    <option value="A">Time A Pressionando Forte</option>
+                    <option value="B">Time B Pressionando Forte</option>
+                </select>
+            </div>
+        </section>
+
+        <!-- BOTÕES DE AÇÃO -->
+        <div class="actions-grid" style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px;">
+            <button type="button" id="btnAnalisarPre" class="btn-primary" style="flex: 1;">⚔️ Analisar Pré-Jogo</button>
+            <button type="button" id="btnAnalisarLive" class="btn-warning"
+                style="flex: 1; background-color: #f59e0b; color: #000;">⚡ Analisar Ao Vivo</button>
+            <button type="button" id="btnPreencher" class="btn-secondary">Preencher Teste</button>
+            <button type="button" id="btnLimpar" class="btn-danger">🗑️ Limpar</button>
+        </div>
+
+        <!-- PAINEL DE EXIBIÇÃO DE RESULTADOS -->
+        <section id="painelResultado" class="card result-card" hidden>
+            <h2>📈 Resultado da Análise</h2>
+            <div id="resultadoConteudo">
+                <!-- Conteúdo gerado via script.js -->
+            </div>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
