@@ -45,6 +45,7 @@ function aplicarAjusteCompeticao(btts, over25, probEmpate, probVitoriaCasa = 0, 
 }
 
 // --- 1. ETAPA PRÉ-JOGO (CALCULA E GUARDA O ESTADO) ---
+// --- 1. ETAPA PRÉ-JOGO (CALCULA E GUARDA O ESTADO) ---
 function analisarApenasH2H() {
     const nomeTimeA = document.getElementById("timeA")?.value.trim() || "Time A";
     const nomeTimeB = document.getElementById("timeB")?.value.trim() || "Time B";
@@ -138,6 +139,14 @@ function analisarApenasH2H() {
         }
     }
 
+    // Define o favorito do pré-jogo exigindo pelo menos 5% de vantagem
+    let favoritoPre = "NENHUM";
+    if (probVitA - probVitB >= 5) {
+        favoritoPre = "A";
+    } else if (probVitB - probVitA >= 5) {
+        favoritoPre = "B";
+    }
+
     // ARMAZENA O ESTADO DO PRÉ-JOGO (Variável Global)
     dadosPreJogoCalculados = {
         nomeTimeA,
@@ -146,7 +155,7 @@ function analisarApenasH2H() {
         probVitB,
         bttsH2H,
         over25H2H,
-        favoritoPre: probVitA > probVitB ? "A" : (probVitB > probVitA ? "B" : "NENHUM"),
+        favoritoPre, // Usa a variável calculada acima com a margem de 5%
         sugestaoPre: melhorH2H.nome
     };
 
