@@ -350,11 +350,18 @@ function exibirResultadoLive(principal, sugestoesLive, minutos, placarA, placarB
 
 // --- FUNÇÕES AUXILIARES ---
 function obterProbabilidadesMercado() {
-    const oddA = parseFloat(document.getElementById("oddA")?.value) || 0;
-    const oddEmpate = parseFloat(document.getElementById("oddEmpate")?.value) || 0;
-    const oddB = parseFloat(document.getElementById("oddB")?.value) || 0;
-    const oddOver25 = parseFloat(document.getElementById("oddOver25")?.value) || 0;
-    const oddBTTS = parseFloat(document.getElementById("oddBTTS")?.value) || 0;
+    // Função auxiliar para tratar vírgulas e converter em número válido
+    const lerInput = (id) => {
+        const str = document.getElementById(id)?.value?.trim().replace(',', '.') || "";
+        const num = parseFloat(str);
+        return isNaN(num) ? 0 : num;
+    };
+
+    const oddA = lerInput("oddA");
+    const oddEmpate = lerInput("oddEmpate");
+    const oddB = lerInput("oddB");
+    const oddOver25 = lerInput("oddOver25");
+    const oddBTTS = lerInput("oddBTTS");
 
     if (oddA <= 0 || oddB <= 0) return null;
 
